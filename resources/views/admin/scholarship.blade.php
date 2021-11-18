@@ -37,12 +37,12 @@
                       <th>Scholarship</th>
                       <th>Sem Charged</th>
                       <th>Funded  By</th>
+                      <th>Status</th>
                       <th>Applicable Policy</th>
                       <th>Qualification</th>
                       <th>Amount of  Grant/Stipend</th>
-                      <th>General Guidelines</th>
                       <th>Contact Information</th>
-                      <th>Status</th>
+                      <th>General Guidelines</th>
                       <th>Action</th>
               
                     </thead>
@@ -60,6 +60,8 @@
                         <td>Student Assistantship Programs</td>
                         @elseif ($scholarships->scholarship_type == 3)
                         <td>Other Government Funded Scholarship with MOA/JMC to MMSU</td>
+                        @elseif ($scholarships->scholarship_type == 4)
+                        <td>Privately-Funded Scholarships with MOA/Contract to MMSU</td>
                         @else
                         <td>--NONE--</td>
                         @endif
@@ -81,19 +83,18 @@
                         <td>--NONE--</td>
                         @endif
 
-                        <td>{{ $scholarships->funded_by }}</td>  
-                        <td>{{ $scholarships->appli_poli}}</td>  
-                        <td>{{$scholarships->qualification }}</td>  
-                        <td>{{ $scholarships->amount_of_grant }}</td>  
-                        <td>{{ $scholarships->gen_guideline }}</td>  
-                        <td>{{ $scholarships->contact_info }}</td>  
-
-                               
+                        <td>{{ $scholarships->funded_by }}</td> 
                         @if($scholarships->active == 1)
                         <td>Active</td>
-                      @else ($scholarships->active == 0)
-                      <td> Inactive</td>
-                      @endif
+                        @else ($scholarships->active == 0)
+                       <td> Inactive</td>
+                        @endif 
+                        <td>{{ $scholarships->appli_poli}}</td>  
+                        <td>{{$scholarships->qualification }}</td>  
+                        <td>{{ $scholarships->amount_of_grant }}</td>    
+                        <td>{{ $scholarships->contact_info }}</td>  
+                        <td>{{ $scholarships->gen_guideline }}</td>  
+      
                    
 
                         <td>
@@ -136,8 +137,8 @@
         "<'row'<'col-sm-12'rt>>" +
         "<'row'<'col-sm-5'i><'col-sm-7'p>>",
       lengthMenu: [
-                      [10, 25, 50, 75, 100, -1],
-                      [10, 25, 50, 75, 100, "All"],
+                      [6, 25, 50, 75, 100, -1],
+                      [6, 25, 50, 75, 100, "All"],
                   ],
 
     columnDefs: [
@@ -150,7 +151,7 @@
         {
             extend: "excelHtml5",
             messageTop: "Mariano Marcos State University",
-            filename: "scholarship",
+            filename: "scholarship_program",
             exportOptions: {
                 columns: ":visible",
             },

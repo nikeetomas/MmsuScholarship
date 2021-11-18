@@ -135,20 +135,12 @@
             </a>
           </li>
           
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-address-book"></i>
-              <p>
-                Report
-              </p>
-            </a>
-          </li>
 
           <li class="nav-item">
             <a href="/scholarshipdeduction" class="nav-link {{ 'scholarshipdeduction' == request()->path() ? 'active' : ''  }}">
               <i class="nav-icon fas fa-folder-open"></i>
               <p>
-                Scholarship Details
+                Scholarship Deductions
               </p>
             </a>
           </li>
@@ -214,9 +206,6 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('DataTables/DataTables-1.10.24/Buttons-1.7.0/css/buttons.jqueryui.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('DataTables/DataTables-1.10.24/Responsive-2.2.7/css/responsive.dataTables.min.css') }}">
 
-</body>
-
-</html>
 
 
 <!-- <script src="{{ asset('template/plugins/datatables/jquery.dataTables.min.js') }}"></script>

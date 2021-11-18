@@ -7,7 +7,7 @@
 @section('content')
  <!-- SELECT2 EXAMPLE -->
  <div class="card card-default">
-          <div class="card-header bg-gradient-info">
+          <div class="card-header" style="background-color:#CCCCFF;">
             <h3 class="card-title">Scholarship</h3>
 
             <div class="card-tools">
@@ -30,6 +30,7 @@
                     <option value="1">Academic Scholars </option>
                     <option value="2">  Student Assistantship Programs </option>
                     <option value="3"> Other Government Funded Scholarship with MOA/JMC to MMSU </option>
+                    <option value="4">Privately-Funded Scholarships with MOA/Contract to MMSU</option>
                   </select>
                 </div>
                 <!-- /.form-group -->
@@ -63,8 +64,8 @@
                   <label>Status</label>
                   <select class="form-control " name="active"style="width: 100%;">
                   <option > </option>
-                  <option value="0">Active</option>
-                  <option value="1">Inactive</option>
+                  <option value="1">Active</option>
+                  <option value="0">Inactive</option>
                   </select>
                 </div>
                 <!-- /.form-group -->
@@ -73,12 +74,12 @@
             <!-- /.row -->
           </div>
           <!-- /.card-body -->
-          <div class="card-footer ">
+          <div class="card-footer"style="background-color:#E5E4E2;">
           </div>
         </div>
         <!-- /.card -->
 <div class="card card-default">
-          <div class="card-header  bg-gradient-info">
+          <div class="card-header" style="background-color:#CCCCFF;">
             <h3 class="card-title">Scholarship Details</h3>
 
             <div class="card-tools">
@@ -111,17 +112,17 @@
                   <input type="text"  name="amount_of_grant" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label>General Guideline</label>
-                <input type="text"  name="gen_guideline" class="form-control" >
+                <label>Contact Information</label>
+                  <input type="text"  name="contact_info" class="form-control" >
                 </div>
                 <!-- /.form-group -->
               </div>
               
               <!-- /.col -->
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <div class="form-group">
-                  <label>Contact Information</label>
-                  <input type="text"  name="contact_info" class="form-control" >
+                <label>General Guideline</label>
+                <textarea  type="text"  name="gen_guideline" class="form-control"></textarea>
                 </div>
            <span>
             <input type="submit"class="btn btn-outline-primary"></input>
@@ -136,7 +137,7 @@
           
           </div>
           <!-- /.card-body -->
-          <div class="card-footer">
+          <div class="card-footer"style="background-color:#E5E4E2;">
           </div>
         </div>
 <!-- <div class="container">

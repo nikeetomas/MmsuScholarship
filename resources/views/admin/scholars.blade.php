@@ -13,7 +13,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="datatable" class="table table-bordered table-hover">
+                <table id="scholartable" class="table table-bordered table-hover">
                   <thead>
                    
                     <th>First <br> Name</th>  
@@ -74,7 +74,37 @@
 @section('scripts')
 <script>
   $(document).ready( function () {
-    $('#datatable').DataTable();
+    $('#scholartable').DataTable({
+      responsive: true,
+      dom:
+        "<'row'<'col-sm-4'l><'col-sm-4'B><'col-sm-4'f>>" +
+        "<'row'<'col-sm-12'rt>>" +
+        "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+        lengthMenu: [
+                      [10, 25, 50, 75, 100, -1],
+                      [10, 25, 50, 75, 100, "All"],
+                  ],
+        columnDefs: [
+          { responsivePriority: 0, targets: 9},
+          { responsivePriority: 1, targets: 7},
+          { responsivePriority: 2, targets: 6 },
+      ],
+      buttons: [
+        {
+            extend: "excelHtml5",
+            messageTop: "Mariano Marcos State University",
+            filename: "scholars",
+            exportOptions: {
+                columns: ":visible",
+            },
+            className: "btn btn-outline-success btn-sm",
+        },
+        {
+            extend: "colvis",
+            className: "btn btn-outline-primary btn-sm",
+        },
+    ],
+    });
 });
 </script>
 
