@@ -20,8 +20,8 @@ class ScholarsController extends Controller
              ->join('cys','cys.id','=','preferences.cy_id')
              
              
-              ->get(['enrollments.section', 'scholarships.scholarship','student_pds.fname','student_pds.lname'
-              ,'student_pds.mname','student_pds.sex','degrees.abbr','colleges.collegeabbr','preferences.status','cys.cy']);
+              ->get([ 'scholarships.scholarship','student_pds.fname','student_pds.lname'
+              ,'student_pds.mname','student_pds.sex','degrees.abbr','colleges.collegeabbr','cys.cy']);
         
             
    

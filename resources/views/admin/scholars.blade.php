@@ -19,12 +19,12 @@
                     <th>First <br> Name</th>  
                     <th>Last <br> Name</th> 
                     <th>Middle <br> Name</th>  
-                    <th>Section</th>
+
                     <th>Degree</th>
 
                     <th>College</th>
 
-                    <th>Status</th>
+                   
                     <th>Gender</th>
                     <th>School <br> Year</th>
 
@@ -37,21 +37,9 @@
                          <td>{{ $row->fname }}</td>
                          <td>{{ $row->lname }}</td>
                          <td>{{ $row->mname }}</td>
-                         <td>{{ $row->section }}</td>
+                    
                          <td>{{ $row->abbr}}</td>
                          <td>{{ $row->collegeabbr}}</td>
-
-
-                          @if($row->status == 0)
-                            <td>Single</td>
-                          @elseif($row->status == 1)
-                            <td>Married</td>
-                          @elseif($row->status == 2)
-                            <td>Widowed</td>
-                          @else
-                            <td>--NONE--</td>
-                          @endif
-
                   
                         @if($row->sex == 1)
                           <td>Female</td>
@@ -85,9 +73,9 @@
                       [10, 25, 50, 75, 100, "All"],
                   ],
         columnDefs: [
-          { responsivePriority: 0, targets: 9},
-          { responsivePriority: 1, targets: 7},
-          { responsivePriority: 2, targets: 6 },
+          { responsivePriority: 0, targets: 7},
+          { responsivePriority: 1, targets: 6},
+          { responsivePriority: 2, targets: 5 },
       ],
       buttons: [
         {

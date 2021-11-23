@@ -12,7 +12,8 @@
             <div class="card">
               <div class="card-header"> 
               <div>
-               <a href="#"  type="submit" class="btn btn-dark float-right" >Add Deduction</a>
+                <!-- Button trigger modal -->
+               <a href="{{ route('scholarshipdeduction.create') }}"  type="submit" class="btn btn-dark float-right" >Add Deduction</a>
                </div>
               <h2> Scholarship Deductions </h2>
               </div>
@@ -21,10 +22,10 @@
                 <table id="datatable" class="table table-bordered table-hover">
                     <thead>
 
-                    
+                      <th>ID</th>                   
                       <th>Scholarship</th>
-                      <th>Semester Charged</th>
-                      <th>Funded By</th>
+                      <!-- <th>Semester Charged</th>
+                      <th>Funded By</th> -->
                       <th>Percent</th>
                       <th>Fund</th>
                       <th>Fund Description</th>
@@ -35,37 +36,24 @@
                     <tbody>
                       @foreach ( $data as $row)
                       <tr>
-                  
+                        <td>{{ $row->id }}</td>
                         <td>{{ $row->scholarship }}</td>
-                        
-                        @if ( $row->sem_charged == 1)
-                        <td>1st Semester</td>
-                        @elseif( $row->sem_charged == 2)
-                        <td> 2nd Semester</td>
-                        @elseif( $row->sem_charged == 3)
-                        <td>Mid Year</td>
-                        @elseif( $row->sem_charged == 12)
-                        <td>1st Semester <br> 2nd Semester</td>
-                        @elseif(  $row->sem_charged == 123)
-                        <td>1st Semester <br>2nd Semester <br> Mid Year</td>
-                        @else
-                        <td>--NONE--</td>
-                        @endif
-                        <td>{{ $row->funded_by }}</td>
+
                         <td>{{ $row->percent }}</td>
                         <td>{{ $row->fund }}</td>
                         <td>{{ $row->fund_desc }}</td>
                   
                        <td>
-                          <a href="#" class="btn btn-warning">Edit </a>
-
-                           
+                       <a href="{{  route('scholarshipdeduction.edit', $row->id) }}" class="btn btn-warning btn-sm btn-icon">
+                          <i class="far fa-edit"></i>
+                      </a>  
                           <form action="" method="POST">
                           {{ csrf_field() }}
                           {{method_field('DELETE')}}
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger btn-sm btn-icon">
+                            <i class="far fa-trash-alt"></i>
+                            </button>
                           </form>
-                         
                        </td>
 
                     </tr>

@@ -21,7 +21,8 @@
                 <div class="form-group">
                   <label>Scholarship Type</label>
                   <select class="form-control " name="scholarship_type" value="{{$sdetail->scholarship_type}}"style="width: 100%;">
-                  <option></option>
+
+                    <option>{{$sdetail->scholarship_type}}</option>
                     <option value="0"> Other Study Grants </option>
                     <option value="1">Academic Scholars </option>
                     <option value="2">  Student Assistantship Programs </option>
@@ -41,7 +42,7 @@
                 <div class="form-group">
                   <label>Semester Charged</label>
                   <select class="form-control" name="sem_charged" value="{{ $sdetail->sem_charged }}" style="width: 100%;">
-                    <option></option>
+                    <option>{{ $sdetail->sem_charged }}</option>
                     <option value="1">1st Semester</option>
                     <option value="2">2nd Semester</option>
                     <option value="12">1st & 2nd Semester</option>
@@ -59,7 +60,7 @@
                 <div class="form-group">
                   <label>Status</label>
                   <select class="form-control " name="active" value="{{ $sdetail->active }}"style="width: 100%;">
-                  <option > </option>
+                  <option > {{ $sdetail->active }}</option>
                   <option value="1">Active</option>
                   <option value="0">Inactive</option>
                   </select>

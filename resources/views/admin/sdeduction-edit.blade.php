@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-md-12">
 
-                            <form action="/scholarshipdeduction"  method="POST" enctype="multipart/form-data">
+                            <form action="{{route('scholarshipdeduction.update', $sdetail->id )}}"  method="POST" enctype="multipart/form-data">
                             @csrf
             
                             <div class="form-group">
@@ -48,29 +48,30 @@
 
                             <div class="form-group">
                                 <label for="">Percent</label>
-                                <input type="text"  name="percent" class="form-control">
+                                <input type="text"  name="percent" value="{{$sdeduction->percent}}"class="form-control">
                             </div> 
                             
                          
                             <div class="form-group">
-                                <label for="">Fund</label>
+                                <label for="">Fund </label>
                                 <select name="fund" id="fund" class="form-control">
-                                    <option value="">--- Select Fund---</option>
+                                <option>{{ $row->fund}}</option>
+                                    <option value="">---Select Fund---</option>
                                     @foreach($fund as $row)
-                                        <option value="{{ $row->fund }}">
-                                        {{ $row->fund }}
+                                        <option value="{{ $row->fund}}">
+                                        {{ $row->fund_desc }}
                                         </option>
                                     @endforeach
                                     </select>
                             </div> 
                             
                             <div class="form-group">
-                                <label for="">Fund Description</label>
-                                <select name="fund_desc" id="fund_desc" class="form-control">
-                                    <option value="">---Select Fund Description---</option>
+                                <label for="">Fund</label>
+                                <select name="fund" id="fund" class="form-control">
+                                    <option value="">Fund</option>
                                     @foreach($fund as $row)
-                                        <option value="{{ $row->fund_desc }}">
-                                        {{ $row->fund_desc}}
+                                        <option value="{{ $row->fund }}">
+                                        {{ $row->fund}}
                                         </option>
                                     @endforeach
                                     </select>

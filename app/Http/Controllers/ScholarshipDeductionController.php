@@ -21,9 +21,11 @@ class ScholarshipDeductionController extends Controller
         ->distinct()
          -> join('scholarships','scholarship_deductions.scholarship_id', '=', 'scholarships.id')
          -> join('fund','fund.fund_id','=','scholarship_deductions.fund_id')
-    
-         ->get( ['scholarships.scholarship','scholarships.sem_charged','scholarships.funded_by'
-        ,'scholarship_deductions.percent', 'scholarship_deductions.fund','fund.fund_desc']);
+         -> select(['scholarship_deductions.id',
+                    'scholarship_deductions.percent',
+                    'scholarships.scholarship',
+                    'fund.fund_desc','fund.fund'])
+         ->get();
 
         // $data= DB::table('scholarships')
         // ->distinct()
@@ -52,6 +54,7 @@ class ScholarshipDeductionController extends Controller
         return view('admin.sdeduction-create')->with('scholarship', $scholarship)
                                                 ->with('scholarshipdeduction',$sdeduction)
                                                 ->with('fund',$fund);
+                                                
     }
 
     /**
@@ -64,28 +67,29 @@ class ScholarshipDeductionController extends Controller
     {
         $scholarship = new Scholarship;
 
-        
+       $scholarship->scholarship_type = 0;
         $scholarship->scholarship = $request->scholarship;
-        $scholarship->sem_charged = $request->sem_charged;
-        $scholarship->funded_by = $request->funded_by;
+        $scholarship->discount= 0;
+        $scholarship->sem_charged =0;
+        $scholarship->funded_by = 0;
         $scholarship-> save();
 
         
         $scholarship_id = $scholarship->id;
 
+
         $sdeductions = new ScholarshipDeduction;
         $sdeductions->scholarship_id=$scholarship_id;
+        $sdeductions->fund_id= 0;
         $sdeductions->percent = $request->percent;
+        $sdeductions->fund = 0;
+        $fundid =  $sdeductions->id;
        // $sdeductions->fund = $request->fund;
         $sdeductions->save();
-
-        $fundid =  $sdeductions->id;
         $fund = new Fund;
-        $fund->fund_id= $fundid;
         $fund->fund = $request->fund;
         $fund->fund_desc = $request->fund_desc;
         $fund->save();
-
 
 
         return redirect('/scholarshipdeduction')->with('status', 'Data Added Successfully');
