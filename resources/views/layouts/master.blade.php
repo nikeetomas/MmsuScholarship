@@ -215,6 +215,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('template/dist/js/demo.js') }}"></script>
 <!-- Page specific script -->
+
 @yield('scripts')
 </body>
 </html>
