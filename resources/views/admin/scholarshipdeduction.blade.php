@@ -47,13 +47,12 @@
                        <a href="{{  route('scholarshipdeduction.edit', $row->id) }}" class="btn btn-warning btn-sm btn-icon">
                           <i class="far fa-edit"></i>
                       </a>  
-                          <form action="" method="POST">
-                          {{ csrf_field() }}
-                          {{method_field('DELETE')}}
-                            <button type="submit" class="btn btn-danger btn-sm btn-icon">
-                            <i class="far fa-trash-alt"></i>
-                            </button>
-                          </form>
+                         
+                      <a href="{{  route('delete', $row->id) }}" class="btn btn-danger btn-sm btn-icon">
+                      <i class="far fa-trash-alt"></i>
+             
+                            </a>
+                          
                        </td>
 
                     </tr>

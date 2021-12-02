@@ -65,33 +65,19 @@ class ScholarshipDeductionController extends Controller
      */
     public function store(Request $request)
     {
-        $scholarship = new Scholarship;
-
-       $scholarship->scholarship_type = 0;
-        $scholarship->scholarship = $request->scholarship;
-        $scholarship->discount= 0;
-        $scholarship->sem_charged =0;
-        $scholarship->funded_by = 0;
-        $scholarship-> save();
-
-        
-        $scholarship_id = $scholarship->id;
-
-
+      
+      
         $sdeductions = new ScholarshipDeduction;
-        $sdeductions->scholarship_id=$scholarship_id;
-        $sdeductions->fund_id= 0;
+        $sdeductions->scholarship_id=$request->scholarship;
+        $sdeductions->fund_id= $request->fund;
         $sdeductions->percent = $request->percent;
-        $sdeductions->fund = 0;
-        $fundid =  $sdeductions->id;
+        // dd($sdeductions);
+        
        // $sdeductions->fund = $request->fund;
         $sdeductions->save();
-        $fund = new Fund;
-        $fund->fund = $request->fund;
-        $fund->fund_desc = $request->fund_desc;
-        $fund->save();
-
-
+       
+      
+        
         return redirect('/scholarshipdeduction')->with('status', 'Data Added Successfully');
     
 
@@ -116,7 +102,18 @@ class ScholarshipDeductionController extends Controller
      */
     public function edit($id)
     {
-        //
+        // dd($id);
+        $sdetail = DB::table('scholarship_deductions')
+        -> join('scholarships','scholarship_deductions.scholarship_id', '=', 'scholarships.id')
+        -> join('fund','fund.fund_id','=','scholarship_deductions.fund_id')
+        -> select(['scholarship_deductions.id',
+                   'scholarship_deductions.percent',
+                   'scholarships.scholarship',
+                   'fund.fund_desc','fund.fund'])
+        ->first();
+
+        // dd($sdetail);
+        return view('admin.sdeduction-edit')->with('sdetail', $sdetail);
     }
 
     /**
@@ -139,6 +136,9 @@ class ScholarshipDeductionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $s_deduc = ScholarshipDeduction::find($id);
+        $s_deduc->delete();
+        return redirect()->back()->with('status', 'Data Deleted Successfully');
     }
 }

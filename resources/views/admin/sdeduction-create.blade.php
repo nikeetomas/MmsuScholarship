@@ -21,7 +21,7 @@
                       <select name="scholarship" id="scholarship" class="form-control">
                         <option value="">--Choose Scholarship Program--</option>
                           @foreach($scholarship as $row)
-                            <option value="{{ $row->scholarship }}">
+                            <option value="{{ $row->id }}">
                               {{ $row->scholarship }}
                             </option>
                           @endforeach
@@ -50,6 +50,7 @@
                                 <label for="">Percent</label>
                                 <input type="text"  name="percent" class="form-control">
                             </div> 
+
                             
                          
                             <div class="form-group">
@@ -57,7 +58,7 @@
                                 <select name="fund" id="fund" class="form-control">
                                     <option value="">--- Select Fund---</option>
                                     @foreach($fund as $row)
-                                        <option value="{{ $row->fund }}">
+                                        <option value="{{ $row->fund_id }}">
                                         {{ $row->fund }}
                                         </option>
                                     @endforeach

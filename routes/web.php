@@ -43,5 +43,5 @@ Route::get('/scholarship', [App\Http\Controllers\ScholarshipController::class, '
 Route::resource('/scholarship', 'App\Http\Controllers\ScholarshipController');
 Route::get('/scholars', 'App\Http\Controllers\ScholarsController@join');
 //Route::get('/scholars','App\Http\Controllers\ScholarsController@show');
-
+Route::get('/scholarshipdeduction{id}', [ScholarshipDeductionController::class, 'destroy'])->name('delete');
 Route::resource('/scholarshipdeduction', 'App\Http\Controllers\ScholarshipDeductionController');
