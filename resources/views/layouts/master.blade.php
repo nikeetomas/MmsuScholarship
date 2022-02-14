@@ -33,9 +33,9 @@
       <!-- Navbar Search -->
       <li class="nav-item">
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
+          <i class="fas fa-user"></i>
         </a>
-        <div class="navbar-search-block">
+        <!-- <div class="navbar-search-block">
           <form class="form-inline">
             <div class="input-group input-group-sm">
               <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
@@ -49,10 +49,11 @@
               </div>
             </div>
           </form>
-        </div>
+        </div> -->
       </li>
      <!-- dropdown user -->
      <li class="nav-item dropdown">
+
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -74,11 +75,11 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background: green;">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background: whitesmoke;">
     <!-- Brand Logo -->
     <a href="" class="brand-link">
-      <img src="{{ asset('template/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">MMSU</span>
+      <img src="{{ asset('template/dist/img/icons.png') }}" alt="RRL Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-bold" style="color:#4682B4;">RRL Organizer</span>
     </a>
 
     <!-- Sidebar -->
@@ -92,24 +93,18 @@
       </div> -->
 
       <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <!-- <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div> -->
+
+      <nav class="mt-3 text-center">
+      <button type="button" class="btn btn-outline-info">DRAFT RRL</button>
+      </nav>
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="/admin" class="nav-link">
+          <li class="nav-item mt-3">
+            <a href="/admin" class="nav-link" style="color:#4682B4;">
               <i class="nav-icon fas fa-chart-line"></i>
               <p>
                 Dashboard
@@ -117,33 +112,34 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="/scholarship" class="nav-link {{ 'scholarship' == request()->path() ? 'active' : ''  }}">
-              <i class="nav-icon fas fa-clipboard-list"></i>
+          <li class="nav-item mt-3">
+            <a href="/scholarship" class="nav-link {{ 'scholarship' == request()->path() ? 'active' : ''  }}"  style="color:#4682B4;">
+              <i class="nav-icon fas fa-file"></i>
+              
               <p>
-                Scholarship List
+                Files
               </p>
             </a>
           </li>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="/scholars" class="nav-link  {{ 'scholars' == request()->path() ? 'active' : ''  }}">
               <i class="nav-icon fas fa-user-graduate"></i>
               <p>
                 Student Records
               </p>
             </a>
-          </li>
+          </li> -->
           
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="/scholarshipdeduction" class="nav-link {{ 'scholarshipdeduction' == request()->path() ? 'active' : ''  }}">
               <i class="nav-icon fas fa-folder-open"></i>
               <p>
                 Scholarship Deductions
               </p>
             </a>
-          </li>
+          </li> -->
           
         </ul>
       </nav>
@@ -190,7 +186,7 @@
 <script src="{{ asset('template/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- DataTables  & Plugins -->
 <!-- DataTable JS -->
-<script type="text/javascript" src="{{ asset('DataTables/DataTables-1.10.24/DataTables-1.10.24/js/jquery.dataTables.min.js') }}"></script>
+<!-- <script type="text/javascript" src="{{ asset('DataTables/DataTables-1.10.24/DataTables-1.10.24/js/jquery.dataTables.min.js') }}"></script>
   <script type="text/javascript" src="{{ asset('DataTables/DataTables-1.10.24/DataTables-1.10.24/js/dataTables.bootstrap4.min.js') }}"></script>
   <script type="text/javascript" src="{{ asset('DataTables/DataTables-1.10.24/Responsive-2.2.7/js/dataTables.responsive.min.js') }}"></script>
   <script type="text/javascript" src="{{ asset('DataTables/DataTables-1.10.24/Buttons-1.7.0/js/dataTables.buttons.min.js') }}"></script>
@@ -199,12 +195,12 @@
   <script type="text/javascript" src="{{ asset('DataTables/DataTables-1.10.24/pdfmake-0.1.36/vfs_fonts.js') }}"></script>
   <script type="text/javascript" src="{{ asset('DataTables/DataTables-1.10.24/Buttons-1.7.0/js/buttons.html5.min.js') }}"></script>
   <script type="text/javascript" src="{{ asset('DataTables/DataTables-1.10.24/Buttons-1.7.0/js/buttons.print.min.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('DataTables/DataTables-1.10.24/Buttons-1.7.0/js/buttons.colVis.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('DataTables/DataTables-1.10.24/Buttons-1.7.0/js/buttons.colVis.min.js') }}"></script> -->
 
   <!-- DataTable CSS -->
-  <link rel="stylesheet" type="text/css" href="{{ asset('DataTables/DataTables-1.10.24/DataTables-1.10.24/css/dataTables.bootstrap4.min.css') }}">
+  <!-- <link rel="stylesheet" type="text/css" href="{{ asset('DataTables/DataTables-1.10.24/DataTables-1.10.24/css/dataTables.bootstrap4.min.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('DataTables/DataTables-1.10.24/Buttons-1.7.0/css/buttons.jqueryui.min.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('DataTables/DataTables-1.10.24/Responsive-2.2.7/css/responsive.dataTables.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('DataTables/DataTables-1.10.24/Responsive-2.2.7/css/responsive.dataTables.min.css') }}"> -->
 
 
 
